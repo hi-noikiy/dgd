@@ -10,7 +10,7 @@ App({
 
   globalData: {
 
-    urlPrefix: {{urlPrefix}},
-    appid: {{appid}}
+    urlPrefix: '{{urlPrefix}}',
+    appid: '{{appid}}'
   }
 })
