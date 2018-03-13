@@ -10,7 +10,7 @@
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
 	"appid": "{{appid}}",
-	"projectname": "{{projectname}}",
+	"projectname": "{{projectName}}",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
