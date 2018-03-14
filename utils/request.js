@@ -45,7 +45,7 @@ module.exports = {
   },
 
   fetchSessionId(cb) {
-    this.geCode(code => {
+    this.getCode(code => {
       if (!code) return;
 
       this.getUserInfo((encryptedData, iv) => {
@@ -60,17 +60,17 @@ module.exports = {
           },
           success: res => {
             console.log('fetchSessionId success', res);
-
-            if (res.session_id) {
+            let sessionId = res.data.session_id;
+            if (sessionId) {
               // 缓存到内存
-              this.sessionId = res.session_id;
+              this.sessionId = sessionId;
               // 存到local
               wx.setStorage({
                 key: 'sessionId',
-                data: res.session_id
+                data: sessionId
               });
 
-              cb(res.session_id);
+              cb(sessionId);
             }else{
               console.error('fetchSessionId no session_id', res)
             }
