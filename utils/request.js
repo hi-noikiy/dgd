@@ -1,6 +1,8 @@
-const app = getApp();
+const app = getApp()
+const {appid, urlPrefix} = require('../constant/config')
+const CGI = require('../constant/cgi')
 
-module.exports = {
+const requestUtils = {
   getCode(cb) {
     wx.login({
       success: (res) => {
@@ -50,28 +52,29 @@ module.exports = {
 
       this.getUserInfo((encryptedData, iv) => {
         wx.request({
-          url: app.globalData.urlPrefix + 'login',
+          url: CGI.mp.login,
           method: 'POST',
           data: {
-            code: code,
-            appid: app.globalData.appid,
+            code,
+            appid,
             encrypted_data: encryptedData,
             iv: iv
           },
           success: res => {
             console.log('fetchSessionId success', res);
-            let sessionId = res.data.session_id;
-            if (sessionId) {
+
+            if (res.data.errcode === 0 && res.data.session_id) {
+              const session_id = res.data.session_id
               // 缓存到内存
-              this.sessionId = sessionId;
+              this.sessionId = session_id;
               // 存到local
               wx.setStorage({
                 key: 'sessionId',
-                data: sessionId
+                data: session_id
               });
 
-              cb(sessionId);
-            }else{
+              cb(session_id);
+            } else {
               console.error('fetchSessionId no session_id', res)
             }
           },
@@ -84,6 +87,7 @@ module.exports = {
   },
 
   getSessionId(cb) {
+    console.log(this)
     this.checkSession(isValid => {
 
       if (!isValid) {
@@ -91,37 +95,43 @@ module.exports = {
         return;
       }
 
-      if(this.sessionId){
+      if (this.sessionId) {
         cb(this.sessionId);
         return;
       }
       wx.getStorage({
         key: 'sessionId',
         success: res => {
+          console.log(res)
           this.sessionId = res.data;
           cb(res.data);
         },
         fail: res => {
-          console.error('getStorage sessionId fail', res);
+          console.log("storage doesn't have sessionId");
           this.fetchSessionId(cb);
         }
       })
     })
-  },
+  }
+}
 
-  request(options) {
-    this.getSessionId(sid => {
+module.exports = (options) => {
+  return new Promise((resolve, reject) => {
+    requestUtils.getSessionId(sid => {
       wx.request({
-        url: app.globalData.urlPrefix + options.page + '?sid=' + sid,
+        url: urlPrefix + options.url + '?sid=' + sid,
         method: 'POST',
         data: options.data,
         success: res => {
-          options.success(res);
+          resolve(res)
+          options.success && options.success(res)
         },
-        fail: options.fail,
+        fail: err => {
+          reject(err)
+          options.fail && options.fail(err)
+        },
         complete: options.complete
       })
-    });
-
-  }
+    })
+  })
 }

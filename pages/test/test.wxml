@@ -1,0 +1,5 @@
+<!--pages/test/test.wxml-->
+<view>
+<button open-type="getRealnameAuthInfo" bindgetrealnameauthinfo="authinfo" category-id="{{[52, 772]}}">实名授权 </button>
+</view>
+
