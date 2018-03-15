@@ -9,8 +9,8 @@
 	},
 	"compileType": "miniprogram",
 	"libVersion": "1.9.91",
-	"appid": "wxb45e454d8e864ace",
-	"projectname": "Immigration",
+	"appid": "{{appid}}",
+	"projectname": "{{projectName}}",
 	"isGameTourist": false,
 	"condition": {
 		"search": {
