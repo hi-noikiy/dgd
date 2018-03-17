@@ -5,7 +5,7 @@
   "window":{
     "backgroundTextStyle":"light",
     "navigationBarBackgroundColor": "#F8F8F8",
-    "navigationBarTitleText": "广东出入境",
+    "navigationBarTitleText": "{{projectName}}",
     "navigationBarTextStyle":"black"
   }
 }

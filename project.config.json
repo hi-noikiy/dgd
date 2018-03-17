@@ -39,5 +39,6 @@
 				}
 			]
 		}
-	}
+	},
+	"miniprogramRoot": "miniprogramRoot/"
 }
