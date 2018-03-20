@@ -1,0 +1,10 @@
+/* test/form/form.wxss */
+.realname-button {
+  margin-top: 10px;
+}
+.radio-class {
+  color: blue;
+}
+.radio-title-class {
+  color: red !important;
+}

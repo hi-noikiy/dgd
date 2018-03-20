@@ -115,6 +115,7 @@ const requestUtils = {
   }
 }
 
+// 对请求 promise 化封装
 module.exports = (options) => {
   return new Promise((resolve, reject) => {
     requestUtils.getSessionId(sid => {

@@ -1,0 +1,13 @@
+{
+  "usingComponents": {
+    "dgd-form": "/components/dgd-weui/dgd-form/dgd-form",
+    "dgd-list": "/components/dgd-weui/dgd-list/dgd-list",
+    "dgd-input": "/components/dgd-weui/dgd-input/dgd-input",
+    "dgd-checkbox": "/components/dgd-weui/dgd-checkbox/dgd-checkbox",
+    "dgd-radio": "/components/dgd-weui/dgd-radio/dgd-radio",
+    "dgd-upload": "/components/dgd-weui/dgd-upload/dgd-upload",
+    "dgd-picker": "/components/dgd-weui/dgd-picker/dgd-picker",
+    "dgd-textarea": "/components/dgd-weui/dgd-textarea/dgd-textarea",
+    "dgd-realname-button": "/components/dgd-weui/dgd-realname-button/dgd-realname-button"
+  }
+}

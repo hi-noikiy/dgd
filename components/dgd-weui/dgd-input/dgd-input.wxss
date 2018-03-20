@@ -1,0 +1,14 @@
+/* components/dgd-weui/dgd-input/dgd-input.wxss */
+
+@import '../style/widget/weui-cell/weui-cell.wxss'; 
+@import '../style/widget/weui-cell/weui-form/weui-form_common.wxss';
+@import '../style/widget/weui-cell/weui-form/weui-vcode.wxss';
+
+.weui-vcode-img {
+  width: 108px;
+}
+
+.weui-vcode-btn {
+  text-align: center;
+  width: 85px;
+}

@@ -1,0 +1,7 @@
+{
+  "usingComponents": {
+    "dgd-form": "/components/dgd-weui/dgd-form/dgd-form",
+    "dgd-list": "/components/dgd-weui/dgd-list/dgd-list",
+    "dgd-input": "/components/dgd-weui/dgd-input/dgd-input"
+  }
+}

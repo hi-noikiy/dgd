@@ -1,0 +1,18 @@
+/* components/dgd-weui/dgd-upload.wxss */
+@import "../style/widget/weui-cell/weui-cell";
+@import "../style/widget/weui-cell/weui-uploader";
+
+.weui-uploader__bd {
+  overflow: visible;
+}
+
+.weui-uploader__file {
+  position: relative;
+}
+
+.del-img {
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%,-50%)
+}

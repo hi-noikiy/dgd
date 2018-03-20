@@ -1,6 +1,7 @@
 {
   "pages":[
-    "pages/test/test"
+    "pages/form/form",
+    "components/dgd-weui/dgd-face-validation/dgd-face-validation"
   ],
   "window":{
     "backgroundTextStyle":"light",

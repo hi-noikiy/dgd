@@ -1,0 +1,2 @@
+<!--components/dgd-weui/dgd-realname-button/dgd-realname-button.wxml-->
+<button open-type="getRealnameAuthInfo" class="component-class" bindgetrealnameauthinfo="handleAuthInfo" size="{{size}}" type="{{type}}" plain="{{plain}}" disabled="{{disabled}}" loading="{{loading}}" hover-class="{{hoverClass}}" bindtap="bindtap" category-id="{{categoryId}}"> <slot></slot> </button>

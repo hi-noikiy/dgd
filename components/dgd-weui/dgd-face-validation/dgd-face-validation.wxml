@@ -1,0 +1,11 @@
+<!--components/dgd-weui/dgd-face-validation/dgd-face-validation.wxml-->
+<view>
+  <dgd-form bind:submit="handleSubmit" model="{{formData}}" rules="{{rules}}">
+    <view slot="content">
+      <dgd-list title="人脸识别">
+        <dgd-input id="name" label="真实姓名" class="dgd-cell weui-cell" bind:input="handleNameInput" placeholder="请输入您的真实姓名"  value="{{formData.name}}"/>
+        <dgd-input id="id" label="身份证号" class="dgd-cell weui-cell" bind:input="handleIdInput" placeholder="请输入身份证号" value="{{formData.id}}" />
+      </dgd-list>
+    </view>
+  </dgd-form>
+</view>

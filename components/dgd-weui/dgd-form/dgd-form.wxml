@@ -1,0 +1,16 @@
+<!--components/dgd-weui/dgd-form/dgd-form.wxml-->
+
+<form class=" component-class " bindsubmit='handleFormSubmit'>
+  <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">
+    {{topTipsMessage}} 
+  </view>
+
+  <slot name="content"></slot>
+
+  <view class="weui-btn-area">
+    <button class="weui-btn submit-class" type="primary" bindtap="handleSubmit">
+      {{submitText}}
+    </button>
+    <slot name="button"></slot>
+  </view>
+</form>

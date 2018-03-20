@@ -1,0 +1,7 @@
+/* components/dgd-weui/dgd-form/dgd-form.wxss */
+
+@import '../style/widget/weui-cell/weui-form.wxss';
+
+.weui-btn-area {
+  margin: 1.17647059em 15px .3em;
+}

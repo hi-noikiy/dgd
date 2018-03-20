@@ -1,0 +1,24 @@
+<!--components/dgd-weui/dgd-input/dgd-input.wxml-->
+<view class="component-class weui-cell weui-cell_input {{vcode || vcodeImg ? 'weui-cell_vcode' : '' }} {{status === 'warn' ? 'weui-cell_warn' : '' }} ">
+    <view class="weui-cell__hd" wx:if="{{label}}">
+        <view class="weui-label">{{label}}</view>
+    </view>
+    <view class="weui-cell__bd">
+        <input name="{{id}}" value="{{value}}" class="weui-input" placeholder="{{placeholder}}" type="{{type}}" password="{{password}}" placeholder-style="{{placeholderStyle}}" placeholder-class="{{placeholderClass}}" disabled="{{disabled}}" maxlength="{{maxlength}}" cursor-spacing="{{cursorSpacing}}" focus="{{focus}}" confirm-type="{{confirmType}}" confirm-hold="{{confirmHold}}" cursor="{{cursor}}" selection-start="{{selectionStart}}" selection-end="{{selectionEnd}}" adjust-position="{{adjustPosition}}" bindinput="handleInput" bindfocus="handleFocus" bindblur="handleBlur" bindconfirm="handleConfirm"/>
+    </view>
+
+    <!--错误 Icon  -->
+    <view bind:tap="tapErrorIcon" class="weui-cell__ft" wx:if="{{status === 'warn'}}">
+      <icon type="warn" size="23" color="#E64340"></icon>
+    </view>
+
+    <!--验证码模式  -->
+    <view class="weui-cell__ft"  wx:if="{{vcode}}">
+      <view class="weui-vcode-btn" bindtap='getVcode'>{{vcodeTime ? vcodeTime + '秒后重试' : '获取验证码'}}</view>
+    </view>
+
+    <!--验证码模式  -->
+    <view class="weui-cell__ft"  wx:if="{{vcodeImg}}">
+      <image class="weui-vcode-img" src="{{vcodeImg}}"/>
+    </view>
+</view>

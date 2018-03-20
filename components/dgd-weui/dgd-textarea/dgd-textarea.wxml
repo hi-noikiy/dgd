@@ -1,0 +1,25 @@
+<view class="weui-cell component-class">
+  <view class="weui-cell__bd">
+    <textarea
+    class="weui-textarea"
+    value="{{value}}"
+    placeholder="{{placeholder}}"
+    disabled="{{disabled}}"
+    maxlength="{{maxlength}}"
+    auto-focus="{{autoFocus}}"
+    focus="{{focus}}"
+    style="height: {{height}}"
+    auto-height="{{autoHeight}}"
+    cursor-spacing="{{cursorSpacing}}"
+    cursor="{{cursor}}"
+    show-confirm-bar="{{showConfirmBar}}"
+    selection-start="{{selectionStart}}"
+    selection-end="{{selectionEnd}}"
+    adjust-position="{{adjustPosition}}"
+    bindinput="handleInput"
+    bindfocus="handleFocus"
+    bindblur="handleBlur"
+    bindconfirm="handleConfirm" />
+    <view class="weui-textarea-counter" wx:if="{{maxlength}}">{{length}}/{{maxlength}}</view>
+  </view>
+</view>

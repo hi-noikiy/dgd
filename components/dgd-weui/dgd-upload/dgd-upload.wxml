@@ -1,0 +1,27 @@
+<view class="weui-cell component-class">
+  <view class="weui-cell__bd">
+    <view class="weui-uploader">
+      <view class="weui-uploader__hd">
+        <view class="weui-uploader__title">{{title}}</view>
+        <view class="weui-uploader__info">{{files.length}}/{{maxNum}}</view>
+      </view>
+      <view class="weui-uploader__bd">
+        <view class="weui-uploader__files" id="uploaderFiles">
+          <block wx:for="{{files}}" wx:key="*this">
+            <view class="weui-uploader__file {{item.status ?'weui-uploader__file_status':''}}" bindtap="previewImage" id="{{item.tempFilePath}}">
+              <image class="weui-uploader__img" src="{{item.tempFilePath}}" mode="aspectFill" />
+              <icon type="cancel" size="18" class="del-img" catchtap="delImg" data-index="{{index}}"></icon>
+               <view class="weui-uploader__file-content" wx:if="{{item.uploadFail}}">
+                <icon type="warn" size="23" color="#F43530"></icon>
+              </view> 
+              <view class="weui-uploader__file-content" wx:if="{{item.progress}}">{{item.progress}}%</view>
+            </view>
+          </block>
+        </view>
+        <view class="weui-uploader__input-box">
+          <view class="weui-uploader__input" bindtap="chooseImage"></view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

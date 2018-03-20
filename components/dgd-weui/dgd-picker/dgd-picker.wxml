@@ -1,0 +1,11 @@
+<!--components/dgd-weui/dgd-picker/dgd-picker.wxml-->
+<view class="weui-cell weui-cell_input component-class">
+    <view class="weui-cell__hd" wx:if="{{label}}">
+        <view class="weui-label">{{label}}</view>
+    </view>
+    <view class="weui-cell__bd">
+        <picker mode="{{mode}}" range="{{range}}" range-key="{{rangeKey}}" start="{{start}}" end="{{end}}" fields="{{fields}}" disabled="{{disabled}}" value="{{valueIndex}}" custom-item="{{customItem}}" bindchange="handleChange" bindcancel="bindcancel" bindcolumnchange="bindcolumnchange" >
+            <view class="weui-input">{{displayName}}</view>
+        </picker>
+    </view>
+</view>

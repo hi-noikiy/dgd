@@ -1,5 +1,6 @@
-/**app.wxss**/
-@import "weui/weui.wxss";
+/** app.wxss **/
+@import 'components/dgd-weui/style/weui.wxss';
+@import 'components/dgd-weui/style/dgd-weui.wxss';
 
 
 page{

@@ -1,0 +1,10 @@
+<!--components/dgd-weui/dgd-radio/dgd-radio.wxml-->
+<radio-group bindchange="handleChange" class="component-class">
+    <label class="weui-cell weui-check__label" wx:for="{{formItems}}" wx:key="value" wx:if="{{!item.disabled}}">
+        <radio class="weui-check" value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+        <view class="weui-cell__bd">{{item.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-radio" wx:if="{{item.checked}}">
+            <icon class="weui-icon-radio" type="success_no_circle" size="16"></icon>
+        </view>
+    </label>
+</radio-group>

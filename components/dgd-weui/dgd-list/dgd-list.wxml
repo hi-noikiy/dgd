@@ -1,0 +1,8 @@
+<!--components/dgd-weui/dgd-cell/dgd-cell.wxml-->
+<view class=" component-class">
+  <view wx:if="{{title}}" class="weui-cells__title title-class">{{title}}</view>
+  <view class="weui-cells {{title ? 'weui-cells_after-title' : ''}}">
+    <slot id="weui-cell"/>
+  </view>
+  <view wx:if="{{tips}}" class="weui-cells__tips tips-class">{{tips}}</view>
+</view>

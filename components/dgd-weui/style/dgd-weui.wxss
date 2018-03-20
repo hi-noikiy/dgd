@@ -1,0 +1,4 @@
+.dgd-cell {
+  padding: 0;
+  display: block;
+}

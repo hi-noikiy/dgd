@@ -1,0 +1,4 @@
+/* components/dgd-weui/dgd-cell/dgd-cell.wxss */
+
+@import "../style/widget/weui-cell/weui-cell";
+@import "../style/widget/weui-cell/weui-access";

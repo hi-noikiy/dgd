@@ -1,0 +1,12 @@
+<!--components/dgd-weui/dgd-checkbox/dgd-checkbox.wxml-->
+<checkbox-group class=" component-class" bindchange="handleChange">
+    <label class="weui-cell weui-check__label" wx:for="{{formItems}}" wx:key="value" wx:if="{{!item.disabled}}">
+        <!--按照 weui 规范，disabled 优先不显示  -->
+      <checkbox class="weui-check" value="{{item.value}}" checked="{{item.checked}}" disabled="{{item.disabled}}"/>
+      <view class="weui-cell__hd weui-check__hd_in-checkbox">
+          <icon class="weui-icon-checkbox_circle" type="circle" size="23" wx:if="{{!item.checked}}"></icon>
+          <icon class="weui-icon-checkbox_success" type="success" size="23" wx:if="{{item.checked}}"></icon>
+      </view>
+      <view class="weui-cell__bd">{{item.name}}</view>
+    </label>
+</checkbox-group>

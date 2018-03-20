@@ -1,0 +1,3 @@
+/* components/dgd-textarea/dgd-textarea.wxss */
+@import "/components/dgd-weui/style/widget/weui-cell/weui-cell";
+@import "/components/dgd-weui/style/widget/weui-cell/weui-form/weui-form_common";

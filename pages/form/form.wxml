@@ -1,0 +1,68 @@
+<!--test/form/form.wxml-->
+<view>
+  <dgd-form model="{{formData}}" rules="{{rules}}" bind:submit="handleFormSubmit">
+    <view slot="content">
+      <dgd-list title="输入框表单">
+        <dgd-input 
+          id="card"
+          label="卡号" 
+          value="{{formData.card}}"
+          bind:input="handleCardInput"
+          class="weui-cell dgd-cell"
+        />
+        <dgd-input 
+          id="phone" 
+          label="手机" 
+          value="{{formData.phone}}"
+          class="weui-cell dgd-cell"        
+          bind:input="handlePhoneInput"
+          vcode
+          vcodeDuration="{{10}}"
+          bind:sendVcode="handleSendVcode"
+        />
+        
+      </dgd-list>
+
+      <dgd-list title="Checkbox 组件" tips="底部说明">
+        <dgd-checkbox items="{{checkboxItems}}" bind:change="handleCheckboxChange" value="{{formData.checkbox}}" id="checkbox"/>
+        <dgd-input 
+          id="vcode" 
+          label="验证码" 
+          value="{{formData.vcode}}"
+          class="weui-cell dgd-cell"
+          vcode-img="../style/images/vcode.jpg"
+          bind:input="handleVcodeInput"
+        />
+        <dgd-checkbox items="{{checkboxItems}}" class="weui-cell dgd-cell" bind:change="handleCheckboxChange" value="{{formData.checkbox}}"/>
+      </dgd-list>
+
+      <dgd-list title="Radio 组件" component-class="radio-class" tips="测试 component-class 的作用" title-class="radio-title-class">
+        <dgd-radio items="{{radioItems}}" bind:change="handleRadioChange" value="{{formData.radio}}" id="radio"/>
+      </dgd-list>
+
+      <dgd-list title="组件上传">
+        <dgd-input label="测试线条"/>
+        <dgd-upload class="dgd-cell weui-cell" title="选择图片" action="{{'http://localhost:3000/file/test'}}" name="{{'imgKey'}}" id="files"
+          max-num="3" bind:upload="handleUpload" catch:change="handleChange"/>
+      </dgd-list>
+
+      <dgd-list title="各式选择器">
+        <dgd-picker label="单选" value="{{formData.selector}}" range="{{selectorRange}}" class="weui-cell dgd-cell" bind:change="handleSelectorChange" />
+        <dgd-picker label="多选" value="{{formData.multiSelector}}" range="{{multiSelectorRange}}" class="weui-cell dgd-cell" mode="multiSelector" bind:change="handleMultiSelectorChange" bindcolumnchange="handleColumnChange"/>
+        <dgd-picker label="时间" value="{{formData.time}}" class="weui-cell dgd-cell" mode="time"/>
+        <dgd-picker label="日期" value="{{formData.date}}" class="weui-cell dgd-cell" mode="date"/>
+        <dgd-picker label="地区" value="{{formData.region}}" class="weui-cell dgd-cell" mode="region" custom-item="全部"/>
+
+      </dgd-list>
+
+      <dgd-list title="文本域">
+        <dgd-input placeholder='测试线条'/>
+        <dgd-textarea class="dgd-cell weui-cell" placeholder="{{'请输入文本'}}" maxlength="{{100}}" height="{{'3.3em'}}" catch:input="handleTextarea" />
+      </dgd-list>
+
+    </view>
+    <view slot="button">
+      <dgd-realname-button component-class="realname-button" text="实名认证" type="primary" bindgetauthinfo="getAuthInfo"/>
+    </view>
+  </dgd-form>
+</view>

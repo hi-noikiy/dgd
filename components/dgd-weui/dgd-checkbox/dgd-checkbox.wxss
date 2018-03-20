@@ -1,0 +1,3 @@
+/* components/dgd-weui/dgd-checkbox/dgd-checkbox.wxss */
+@import '../style/widget/weui-cell/weui-cell.wxss'; 
+@import '../style/widget/weui-cell/weui-check.wxss'; 
