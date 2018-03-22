@@ -4,7 +4,7 @@ const validator = require('../utils/validator')
 
 Component({
   behaviors: [formControlBehavior],
-  externalClasses: ['component-class'],
+  externalClasses: ['component-class', 'input-class'],
   // 组件关系
   relations: {
     '../dgd-form/dgd-form': {
@@ -149,6 +149,11 @@ Component({
       if (formNode) {
         formNode.showTopTips({ message: this.data.warnMessage })
       }
+    },
+
+    // 点击图片验证码，暴露点击事件，方便业务刷新验证码
+    tapVcode(e) {
+      this.triggerEvent('tapVcode', e)
     },
 
     // 点击获取验证码（仅支持中国手机）

@@ -33,6 +33,10 @@ Component({
     tipsDuration: {
       type: Number,
       value: 3000
+    },
+    disabled: {
+      type: Boolean,
+      value: false
     }
   },
 
