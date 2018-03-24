@@ -1,0 +1,29 @@
+:host {
+  flex: 1;
+  position: relative;
+}
+
+.step-icon {
+  background-color: #fff;
+  float: left;
+  position: relative; 
+  z-index: 10;
+}
+
+ .tail {
+  content: '';
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #48C23D;
+  position: absolute;
+  top: 7px;
+}  
+
+.remark {
+  white-space: nowrap;
+  color: #48C23D;
+  font-size: 28rpx;
+  margin-left: -1.5em;
+  clear: both;
+}

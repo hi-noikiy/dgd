@@ -8,7 +8,7 @@ module.exports = function(formData, validConfig) {
   if (!validConfig || typeof validConfig !== 'object') {
     throw new Error('rules 属性必须是一个 Object')
   }
-
+  
   const validPromise = Object.keys(formData)
     .reduce((arr, key) => {
       const value = formData[key]

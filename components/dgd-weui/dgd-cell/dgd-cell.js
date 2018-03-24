@@ -6,7 +6,6 @@ Component({
   externalClasses: ['component-class'],
   properties: {
     label: String,
-    desc: String,
     icon: String,
     to: String
   },

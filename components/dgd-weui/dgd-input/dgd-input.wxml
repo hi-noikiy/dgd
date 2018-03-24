@@ -18,7 +18,7 @@
     </view>
 
     <!--验证码模式  -->
-    <view class="weui-cell__ft"  wx:if="{{vcodeImg}}">
-      <image class="weui-vcode-img" src="{{vcodeImg}}"/>
+    <view class="weui-cell__ft"  wx:if="{{vcodeImg}}" bindtap="tapVcode">
+      <image class="weui-vcode-img" src="{{vcodeImg}}" />
     </view>
 </view>

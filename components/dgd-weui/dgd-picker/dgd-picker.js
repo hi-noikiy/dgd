@@ -1,4 +1,7 @@
 // components/dgd-weui/dgd-picker/dgd-picker.js
+/**
+ * 受控组件本靠 value 来响应 displayName，可考虑从 onChange 里除去 display 的显示
+ */
 const formControlBehavior = require('../behaviors/form-control')
 
 Component({
@@ -26,7 +29,11 @@ Component({
       value: 'name'
     },
     value: {
-      type: [String, Array]
+      type: [String, Array],
+      observer(newValue) {
+        this.initStatus(newValue)
+        this.initValue()
+      }
     },
     mode: {
       type: String,
@@ -63,7 +70,9 @@ Component({
    */
   data: {
     displayName: '请选择',
-    valueIndex: 0
+    valueIndex: 0,
+    status: '',
+    isEmpty: false
   },
 
   ready() {
@@ -92,10 +101,31 @@ Component({
    * 组件的方法列表
    */
   methods: {
+      // 提供修改内部状态的方法
+    warn({ message }) {
+      this.setData({
+        status: 'warn',
+        warnMessage: message || '表单有误'
+      })
+    },
+    // 初始化状态，包括 placeholder, status
+    initStatus(value){
+      if (Array.isArray(value) && value.length === 0 || value === ''){
+        this.setData({
+          status: '',
+          isEmpty: true,
+          displayName: this.properties.placeholder
+        })
+      } else {
+        this.setData({
+          isEmpty: false,
+          status: ''
+        })
+      }
+    },
     initValue() {
       // 根据 value 初始化选项
-      const { value, mode, splitKey} = this.properties
-
+      const { value, mode, splitKey, placeholder} = this.properties
       if (value) {
         if(mode === 'selector' || mode === 'multiSelector') {
           if (Array.isArray(value)) {

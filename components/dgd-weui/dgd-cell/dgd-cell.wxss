@@ -2,3 +2,16 @@
 
 @import "../style/widget/weui-cell/weui-cell";
 @import "../style/widget/weui-cell/weui-access";
+@import "../style/widget/weui-cell/weui-form";
+
+.label-icon {
+  margin-right: 5px;
+  vertical-align: middle;
+  width:20px; 
+  height: 20px;
+}
+
+.cell-label {
+  display: flex;
+  flex: 1;
+}

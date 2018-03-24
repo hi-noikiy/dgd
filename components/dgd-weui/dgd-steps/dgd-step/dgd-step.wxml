@@ -1,0 +1,3 @@
+<icon type="{{finish?'success':'circle'}}" size="15" color="{{toDo?'rgb(72,194,61)':''}}" class="step-icon"></icon>
+<view class="remark">{{title}}</view>
+ <view class="tail" wx:if="{{!last}}"></view> 

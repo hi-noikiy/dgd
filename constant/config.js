@@ -6,3 +6,5 @@ let isDev = true;
 exports.appid = '{{appid}}'
 
 exports.urlPrefix = isDev ? '{{devUrlPrefix}}' : '{{proUrlPrefix}}'
+
+exports.mapKey = '{{mapKey}}'

@@ -1,9 +1,15 @@
 <!--components/dgd-weui/dgd-cell/dgd-cell.wxml-->
 <view class="weui-cell weui-cell_access component-class" catchtap="cellTap">
-  <view class="weui-cell__hd">
-    <image wx:if="{{icon}}" src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:20px; height: 20px;"></image>
+  <view class="cell-label">
+    <view class="weui-cell__hd" wx:if="{{label}}">
+      <view class="weui-label">
+        <image wx:if="{{icon}}" src="{{icon}}" class="label-icon"></image>
+        {{label}}
+      </view>
+    </view>
+    <view class="weui-cell__bd">
+      <slot />
+    </view>
   </view>
-  <view class="weui-cell__bd">{{label}}</view>
-  <view class="weui-cell__ft">{{desc}}</view>
-  <view wx:if="{{to}}" class="weui-cell__ft weui-cell__ft_in-access"></view>
+  <view wx:if="{{to}}" class="weui-cell__ft weui-cell__ft_in-access"></view> 
 </view>

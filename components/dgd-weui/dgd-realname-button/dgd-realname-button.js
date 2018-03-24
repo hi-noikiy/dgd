@@ -88,7 +88,7 @@ Component({
     },
     // 提供给外部 trigger
     triggerAuthInfoEvent(data) {
-      console.log(data)
+      // 要等原页面初始化成功后才可触发
       this.triggerEvent('authInfo', data)
     }
   }

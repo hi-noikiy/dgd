@@ -1,0 +1,8 @@
+<!--components/dgd-weui/dgd-location/dgd-location.wxml-->
+<view>
+  <picker bindchange="handleChange" value="{{valueIndex}}" range="{{range}}" mode="{{mode === 'city' ? 'selector' : 'multiSelector'}}" bind:columnchange="handleColumnChange">
+    <view class="picker">
+      <slot></slot>
+    </view>
+  </picker>
+</view>

@@ -1,3 +1,8 @@
 /* components/dgd-weui/dgd-picker/dgd-picker.wxss */
 @import '../style/widget/weui-cell/weui-cell.wxss'; 
 @import '../style/widget/weui-cell/weui-form/weui-form_common.wxss';
+@import '../style/widget/weui-cell/weui-form/weui-select.wxss';
+
+.placeholder-color{
+    color:#ccc;
+}

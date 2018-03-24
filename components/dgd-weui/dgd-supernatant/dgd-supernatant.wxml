@@ -1,0 +1,15 @@
+<!--components/dgd-ui/dgd-supernatant/dgd-supernatant.wxml-->
+<view class="supernatant-cards component-class" bindtap="handlSupernatant" data-name="{{name}}">
+    <view class="supernatant-card">
+        <block wx:if="{{classify === 'default'}}">
+            <view wx:if="{{!!supernatantTitle}}" class="card-name">{{supernatantTitle}}</view>
+            <view wx:if="{{!!supernatantInfo}}" class="card-tip">
+                <text>{{supernatantInfo}}</text>
+                <text wx:if="!!supernatantTips" class="card-right">{{supernatantTips}}</text>
+            </view>
+        </block>
+        <block wx:else="{{classify === 'custom'}}">
+            <slot></slot>
+        </block>
+    </view>
+</view>

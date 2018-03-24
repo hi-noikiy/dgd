@@ -33,6 +33,10 @@ Component({
     tipsDuration: {
       type: Number,
       value: 3000
+    },
+    disabled: {
+      type: Boolean,
+      value: false
     }
   },
 
@@ -89,7 +93,7 @@ Component({
               query.selectViewport().scrollOffset().exec((res) => {
                 if (res[1].scrollTop) {
                   wx.pageScrollTo({
-                    scrollTop: res[1].scrollTop + res[0].top,
+                    scrollTop: res[1].scrollTop + res[0].top - 30,
                   });
                 }
               });
@@ -110,7 +114,8 @@ Component({
             // 推送事件
             this.triggerEvent('submit', {
               validStatus: true,
-              value: this.properties.model
+              value: this.properties.model,
+              formId: e.detail.formId
             })
           } else {
             // 校验失败，组件内部提供错误提示和状态，并把错误信息推回给业务组件处理

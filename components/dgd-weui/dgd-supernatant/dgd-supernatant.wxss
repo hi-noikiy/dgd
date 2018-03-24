@@ -1,0 +1,34 @@
+/* components/dgd-ui/dgd-supernatant/dgd-supernatant.wxss */
+ .supernatant-cards {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+} 
+
+.supernatant-card {
+  box-sizing: border-box;
+  width: 690rpx;
+  border: 1rpx solid #F1F1F1;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.10);
+  border-radius: 5px;
+  margin-bottom: 20rpx;
+  padding: 39rpx 47rpx 41rpx;
+  background-color:#fff;
+
+}
+
+.card-name {
+  font-size: 18px;
+  line-height: 25px;
+  margin-bottom: 10rpx;
+}
+
+.card-tip {
+  font-size: 24rpx;
+  line-height: 20px;
+  color: #888888;
+}
+.card-right{
+    float:right;
+    text-align: right;
+}

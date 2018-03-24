@@ -1,0 +1,34 @@
+<!--components/dgd-weui/dgd-calendar/dgd-calendar.wxml-->
+<view class="calendar-container component-class" >
+
+  <!--单行模式  -->
+  <view class="single-container" wx:if="{{mode === 'single'}}">
+    <scroll-view scroll-x style="width: 100%; white-space: nowrap;"  upper-threshold="50" upper-threshold="50" bind:scrolltoupper="handleSingleScrollLeft" bind:scrolltolower="handleSingleScrollRight" bind:scroll="handleSingleScroll">
+      <view wx:for="{{dateOptions}}" class="single-date-block date-block-class date-block {{item.disabled ? 'disabled-block' : ''}}" wx:key="item.date" style="{{item.style}}">
+        <view class="single-week-item week-item-class">{{item.weekDisplay}}</view>
+        <view class="tap-container"  bind:tap="handleChange" data-item="{{item}}">
+          <view class="single-date-item date-item-class {{item.date === value ? 'selected-item' : ''}}">{{item.dateDisplay}}</view>
+        </view>
+      </view>
+    </scroll-view>
+
+    <view wx:if="{{mode === 'single'}}">
+      <view hidden='{{hideLeftShadow}}' class="left-shadow-block" />
+      <view hidden='{{hideRightShadow}}'class="right-shadow-block" />
+    </view>
+  </view>
+  
+
+  <!--多行模式  -->
+  <view wx:if="{{mode === 'multiple'}}" class="multiple-container">
+    <view class="multiple-week-container">
+      <view>周日</view><view>周一</view><view>周二</view><view>周三</view><view>周四</view><view>周五</view><view>周六</view>
+    </view>
+    <view wx:for="{{dateOptions}}" wx:for-item="row" wx:for-index="rowIndex" class="multiple-row-container" wx:key="rowIndex">
+      <view wx:for="{{row}}" style="{{item.style || ''}}" class="multiple-date-block tap-container {{item.disabled ? 'disabled-block' : 'date-block'}}" wx:key="item.date" bind:tap="handleChange" data-item="{{item}}">
+        <view class="multiple-date-item date-item-class {{item.date === value ? 'selected-item' : ''}}"> {{item.dateDisplay}}</view>
+      </view>
+    </view>
+  </view>
+  
+</view>

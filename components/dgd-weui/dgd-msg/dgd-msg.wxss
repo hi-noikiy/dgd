@@ -1,0 +1,4 @@
+/* components/dgd-weui/dgd-msg/dgd-msg.wxss */
+
+@import '/components/dgd-weui/style/widget/weui-page/weui-msg';
+@import '/components/dgd-weui/style/widget/weui-button/weui-button';

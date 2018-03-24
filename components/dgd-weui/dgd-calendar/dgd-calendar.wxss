@@ -1,0 +1,106 @@
+/* components/dgd-weui/dgd-calendar/dgd-calendar.wxss */
+.calendar-container {
+  border-top: 1rpx solid #e5e5e5;
+  border-bottom: 1rpx solid #e5e5e5;
+  background: #fff;
+  overflow: hidden;
+  position: relative;
+}
+
+.single-container {
+  padding: 24rpx 0rpx;
+  
+}
+
+.single-date-block, .multiple-date-block {
+  display: inline-block;
+}
+
+.date-block {
+  text-align: center;
+}
+
+.single-date-block.date-block {
+  color: #000;
+  padding-left: 30rpx;
+  padding-right: 30rpx;
+}
+.single-date-block .tap-container {
+  padding-top: 10rpx;
+}
+.single-date-item {
+  font-size: 34rpx;
+  height: 50rpx;
+  width: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  
+}
+
+.single-week-item {
+  font-size: 28rpx;
+}
+
+.single-date-block.disabled-block, .multiple-date-block.disabled-block {
+  color: #999;
+}
+
+.left-shadow-block {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 84rpx;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, .9), rgba(255, 255, 255, .1));
+}
+.right-shadow-block {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 84rpx;
+  background: -webkit-linear-gradient(left, rgba(255, 255, 255, .1), rgba(255, 255, 255, .9));
+}
+
+.date-item {
+  font-size: 34rpx;
+  margin-top: 12rpx;
+  height: 50rpx;
+  width: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+
+.selected-item {
+  color: #fff;
+  border-radius: 50%;
+  background: #1AAD19;
+}
+
+/*多列的日期  */
+.multiple-week-container {
+  display: flex;
+  justify-content: space-around;
+  padding: 26rpx 0;
+  font-size: 28rpx;
+  border-bottom: 1rpx solid #e5e5e5;
+}
+.multiple-date-block {
+  font-size: 34rpx;
+  line-height: 50rpx;
+  text-align: center;
+}
+.multiple-row-container {
+  display: flex;
+  justify-content: space-around;
+}
+.multiple-container {
+  padding-bottom: 24rpx;
+}
+.multiple-container .tap-container {
+  padding: 10rpx 28rpx;
+}
+.multiple-date-item {
+  height: 50rpx;
+  width: 50rpx;
+}
