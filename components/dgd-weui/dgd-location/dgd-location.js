@@ -1,5 +1,6 @@
 // components/dgd-weui/dgd-location/dgd-location.js
 const qmap = require('../../../utils/qmap.js')
+const { urlPrefix } = require('../../../constant/config')
 const CGI = {
   getListByBizType: 'https://mp.digitalgd.com.cn/api/mp/login'
 }
@@ -20,13 +21,11 @@ Component({
       value: [],
       observer(newValue) {
         this.setValueIndex(newValue)
-        
       }
     }
   },
 
   data: {
-    province: [],
     range: [],
     valueIndex: [0, 0]
   },
@@ -81,14 +80,16 @@ Component({
     },
     // 自动定位初始化位置，根据腾讯地图换取位置
     initLocation() {
-      const { defaultValue, province } = this.properties
+      const { defaultValue } = this.properties
+      const { range } = this.data 
+
       return this.getLocation()
         .then(this.convertCodeToLocation)
         .then(resp => {
           const addressInfo = resp.address_component
           const value = [addressInfo.province, addressInfo.city]
 
-          if (!province.includes(addressInfo.province)) {
+          if (!range[0].includes(addressInfo.province)) {
             // 不支持的省份
             this.setToDefault()
           } else {
@@ -104,14 +105,13 @@ Component({
         })
     },
     // 根据 value 设置 valueIndex
-    setValueIndex(valueArr) {
+    setValueIndex(valueArr = this.data.value) {
       const { range } = this.data
-
+      console.log(range)
       const valueIndex = range.map((arr, index) => {
         let vi = arr.indexOf(valueArr[index])
         return vi === -1 ? 0 : vi
       })
-      
       this.setData({
         valueIndex
       })
@@ -122,20 +122,21 @@ Component({
 
       // TODO 任务ID
       return Promise.resolve(['广东省'])
-        .then((province) => {
+        .then((provinceArr) => {
+          const range = [provinceArr, []]
           this.setData({
-            province
+            range
           })
         })
     },
     // 根据业务 id 获取可转化的省市
     getListByBizType() {
-      const { province, valueIndex } = this.data
+      const { range, valueIndex } = this.data
       const { bizType } = this.properties
       
       const data = {
         biz_type: bizType,
-        province: province[valueIndex[0]]
+        province: range[0][valueIndex[0]]
       }
 
       wx.request({
@@ -147,8 +148,9 @@ Component({
             console.log(resp)
           } else {
             this.setData({
-              range: [province, ['东莞市', '广州市', '清远市']]
+              range: [range[0], ['东莞市', '广州市', '清远市']]
             })
+            this.setValueIndex()
           }
         }
       })
@@ -157,6 +159,9 @@ Component({
     // 列改变，切换省份
     handleColumnChange(e) {
       const {column, value} = e.detail
+      if (column === 0) {
+        console.log('换省了，需要重新调用 getListByBizType 获取城市列表')
+      }
     },
 
     // 回到默认省份
