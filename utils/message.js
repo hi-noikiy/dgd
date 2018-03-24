@@ -1,5 +1,5 @@
 const CGI = require('../constant/cgi')
-const request = require('../../utils/request')
+const request = require('request')
 
 module.exports = {
 	// 收集formId

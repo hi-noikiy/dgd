@@ -52,7 +52,7 @@ const requestUtils = {
 
       this.getUserInfo((encryptedData, iv) => {
         wx.request({
-          url: CGI.mp.login,
+          url: urlPrefix + CGI.mp.login,
           method: 'POST',
           data: {
             code,

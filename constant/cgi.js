@@ -7,7 +7,14 @@ module.exports = {
 
   // 非税缴费
   nontax: {
-    queryfee: '/api/nontax/queryfee'
+    // 查询应收信息
+    queryfee: '/api/nontax/queryfee',
+
+    // 支付下单
+    unifiedorder: '/api/nontax/unifiedorder',
+
+    // 查询订单
+    getorder: '/api/nontax/getorder'
   },
 
   // 模板消息
